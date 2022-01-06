@@ -1,11 +1,19 @@
 package BillTracker;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class BillData {
 
+    private static final DecimalFormat dollarFormatting = new DecimalFormat("0.00");
+
     public static void main(String[] args){
         double totalBiWeeklyEntry = 1425.00;
+        double total = 0;
+        double totalMonthlyBills = totalBiWeeklyEntry * 4;
+
         HashMap<String, Double> billItems = new HashMap<String, Double>();
         billItems.put("rent", 1680.00);
         billItems.put("power", 100.00);
@@ -26,7 +34,13 @@ public class BillData {
         billItems.put("therapy", 100.00);
         billItems.put("xm radio", 22.08);
         billItems.put("groceries", 500.00);
-        System.out.println(billItems);
+
+        for(Map.Entry<String, Double> entry : billItems.entrySet()){
+            total += entry.getValue();
+        }
+
+        System.out.println("Total cost of bills: $" + dollarFormatting.format(total));
+        System.out.println("Total being entered: $" + dollarFormatting.format(totalMonthlyBills));
     }
 
 }
