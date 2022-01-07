@@ -2,12 +2,8 @@ package BillTracker;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 public class BillData {
-
-    private static final DecimalFormat dollarFormatting = new DecimalFormat("0.00");
 
     public static void main(String[] args){
         double totalBiWeeklyEntry = 1425.00;
@@ -39,8 +35,8 @@ public class BillData {
             total += entry.getValue();
         }
 
-        System.out.println("Total cost of bills: $" + dollarFormatting.format(total));
-        System.out.println("Total being entered: $" + dollarFormatting.format(totalMonthlyBills));
+        System.out.println("Total cost of bills: $" + String.format("%.2f", total));
+        System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyBills));
     }
 
 }
