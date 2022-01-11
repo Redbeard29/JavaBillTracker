@@ -2,16 +2,16 @@ package BillTracker;
 
 import java.util.Scanner;
 
-public class GetBillInput {
+public class ValidateInputs {
 
-    public static void main(String args[]){
+    public static Scanner scanner = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
-
-        //Validate dollar amount
-        double totalEntered;
+    public static double validateTotalEntered(){
         System.out.println("How much did you transfer for this two week period?");
+
+        double totalEntered;
         boolean firstTime = true;
+
         do{
             if(!firstTime) {
                 System.out.println("Please enter a positive number.");
@@ -24,10 +24,15 @@ public class GetBillInput {
             firstTime = false;
         }while (totalEntered < 0.00);
 
-        //Validate number of extra transactions
+        return totalEntered;
+    }
+
+    public static int validateNumOfTrans(){
         System.out.println("How many extra transactions would you like to account for?");
+
         int numOfTrans;
-        firstTime = true;
+        boolean firstTime = true;
+
         do{
             if(!firstTime) {
                 System.out.println("Please enter a positive number.");
@@ -40,7 +45,6 @@ public class GetBillInput {
             firstTime = false;
         }while (numOfTrans < 0);
 
-        System.out.println("You entered $" + String.format("%.2f", totalEntered) + " for " + numOfTrans + " extra transactions.");
+        return numOfTrans;
     }
-
 }

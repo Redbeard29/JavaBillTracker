@@ -3,13 +3,17 @@ package BillTracker;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BillData {
+public class CalculateTotalDue {
 
-    public static void main(String[] args){
-        double totalBiWeeklyEntry = 1425.00;
-        double total = 0;
+    public static double getTotalMonthlyPayment(double totalBiWeeklyEntry){
         double totalMonthlyBills = totalBiWeeklyEntry * 4;
+        return totalMonthlyBills;
+    }
 
+    public static double calculateTotalCost(){
+        double totalCostOfBills = 0;
+
+        //Bills
         HashMap<String, Double> billItems = new HashMap<String, Double>();
         billItems.put("rent", 1680.00);
         billItems.put("power", 100.00);
@@ -32,11 +36,10 @@ public class BillData {
         billItems.put("groceries", 500.00);
 
         for(Map.Entry<String, Double> entry : billItems.entrySet()){
-            total += entry.getValue();
+            totalCostOfBills += entry.getValue();
         }
 
-        System.out.println("Total cost of bills: $" + String.format("%.2f", total));
-        System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyBills));
+        return totalCostOfBills;
     }
 
 }
