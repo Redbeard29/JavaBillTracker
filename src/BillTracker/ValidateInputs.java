@@ -28,7 +28,7 @@ public class ValidateInputs {
     }
 
     public static int validateNumOfTrans(){
-        System.out.println("How many extra transactions would you like to account for?");
+        System.out.println("How many transactions would you like to include to account for the difference?");
 
         int numOfTrans;
         boolean firstTime = true;

@@ -17,13 +17,22 @@ public class Main {
         //Validate dollar amount entered
         double totalEntered = ValidateInputs.validateTotalEntered();
 
-        //Validate number of extra transactions
-        int numOfTrans = ValidateInputs.validateNumOfTrans();
+        //If there is a difference between total cost of bills and amount entered, calculate and print it
+        if(totalEntered != totalBiWeeklyEntry){
 
-        //Calculate difference between total cost of bills and amount entered
-        double difference = CalculateDifference.calculateDifference(totalBiWeeklyEntry, totalEntered);
+            //Calculate difference and print it
+            double difference = CalculateDifference.calculateDifference(totalBiWeeklyEntry, totalEntered);
 
-        System.out.println("You entered $" + String.format("%.2f", totalEntered) + ", which is a difference of $" + String.format("%.2f", difference) + " for " + numOfTrans + " extra transactions.");
+            //Validate number of extra transactions to account for difference
+            int numOfTrans = ValidateInputs.validateNumOfTrans();
+
+            System.out.println("You are accounting for the difference of $" + String.format("%.2f", difference) + " with " + numOfTrans + " transactions.");
+
+        }
+        else{
+            System.out.println("This is exactly the amount that is expected.");
+        }
+
     }
 
 }
