@@ -1,8 +1,5 @@
 package BillTracker;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
 
     public static void main(String[] args){
@@ -15,6 +12,7 @@ public class Main {
         System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyBills));
 
         //Validate dollar amount entered
+        System.out.println("How much did you transfer for this two week period?");
         double totalEntered = ValidateInputs.validateTotalEntered();
 
         //If there is a difference between total cost of bills and amount entered, calculate and print it
@@ -25,9 +23,8 @@ public class Main {
 
             //Validate number of extra transactions to account for difference
             int numOfTrans = ValidateInputs.validateNumOfTrans();
-
-            System.out.println("You are accounting for the difference of $" + String.format("%.2f", difference) + " with " + numOfTrans + " transactions.");
-
+            double sumOfExtraTrans = AddAdjustments.addAdjustments(numOfTrans);
+            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", sumOfExtraTrans));
         }
         else{
             System.out.println("This is exactly the amount that is expected.");

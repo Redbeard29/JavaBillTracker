@@ -7,8 +7,6 @@ public class ValidateInputs {
     public static Scanner scanner = new Scanner(System.in);
 
     public static double validateTotalEntered(){
-        System.out.println("How much did you transfer for this two week period?");
-
         double totalEntered;
         boolean firstTime = true;
 
@@ -47,4 +45,5 @@ public class ValidateInputs {
 
         return numOfTrans;
     }
+
 }
