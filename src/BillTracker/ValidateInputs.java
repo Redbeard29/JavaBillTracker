@@ -1,5 +1,7 @@
 package BillTracker;
 
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ValidateInputs {
@@ -46,4 +48,26 @@ public class ValidateInputs {
         return numOfTrans;
     }
 
+    public static boolean validateNotes(){
+        System.out.println("Enter associated notes? Y/N");
+
+        char noteResponse;
+        boolean firstTime = true;
+
+        do{
+            if(!firstTime) {
+                System.out.println("Please enter Y or N.");
+            }
+            noteResponse = scanner.next().charAt(0);
+            System.out.println(noteResponse);
+            firstTime = false;
+        }while(noteResponse != 'Y' || noteResponse != 'N');
+        //Need to check how these types are stored to see why they're not registering as equal
+
+        if(noteResponse == 'Y'){
+            return true;
+        }
+
+        return false;
+    }
 }

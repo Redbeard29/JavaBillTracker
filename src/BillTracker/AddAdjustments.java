@@ -11,9 +11,19 @@ public class AddAdjustments {
         for(int x = 0; x < numOfTrans; x++){
             System.out.println("Transaction " + (x + 1) + ":");
             String reason = scanner.nextLine();
+
             System.out.println("How much?");
             double cost = ValidateInputs.validateTotalEntered();
+
             System.out.println("You entered $" + String.format("%.2f", cost) + " for " + reason);
+
+            //Still need to create logic for notes and validation of notes
+            boolean addNotes = ValidateInputs.validateNotes();
+            if(addNotes){
+                System.out.println("Notes for $" + String.format("%.2f", cost) + " " + reason + ":");
+                String notes = scanner.nextLine();
+                System.out.println(notes + " stored as notes for " + reason);
+            }
             sumOfTrans += cost;
         }
         return sumOfTrans;
