@@ -51,20 +51,13 @@ public class ValidateInputs {
     public static boolean validateNotes(){
         System.out.println("Enter associated notes? Y/N");
 
-        char noteResponse;
-        boolean firstTime = true;
-
-        do{
-            if(!firstTime) {
-                System.out.println("Please enter Y or N.");
-            }
+        char noteResponse = scanner.next().charAt(0);
+        while(!(Character.toUpperCase(noteResponse) == 'Y' || Character.toUpperCase(noteResponse) == 'N')){
+            System.out.println("That input is invalid. Please enter Y or N.");
             noteResponse = scanner.next().charAt(0);
-            System.out.println(noteResponse);
-            firstTime = false;
-        }while(noteResponse != 'Y' || noteResponse != 'N');
-        //Need to check how these types are stored to see why they're not registering as equal
+        }
 
-        if(noteResponse == 'Y'){
+        if(Character.toUpperCase(noteResponse) == 'Y'){
             return true;
         }
 
