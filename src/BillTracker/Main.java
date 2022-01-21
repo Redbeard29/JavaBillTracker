@@ -5,11 +5,11 @@ public class Main {
     public static void main(String[] args){
         double totalBiWeeklyEntry = 1425.00;
 
-        double totalMonthlyBills = CalculateTotalDue.getTotalMonthlyPayment(totalBiWeeklyEntry);
+        double totalMonthlyPayment = CalculateTotalDue.getTotalMonthlyPayment(totalBiWeeklyEntry);
         double totalCostOfBills = CalculateTotalDue.calculateTotalCost();
 
         System.out.println("Total cost of bills: $" + String.format("%.2f", totalCostOfBills));
-        System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyBills));
+        System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyPayment));
 
         //Validate dollar amount entered
         System.out.println("How much did you transfer for this two week period?");
@@ -28,7 +28,7 @@ public class Main {
                 System.out.println("The amount entered does not equal the amount specified. Please re-enter adjustments.");
                 isValidAdjustment = AddAdjustments.addAdjustments(numOfTrans, difference);
             }
-            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", difference));
+            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", difference) + ", which is totals the difference specified.");
         }
         else{
             System.out.println("This is exactly the amount that is expected.");

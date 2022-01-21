@@ -26,6 +26,7 @@ public class AddAdjustments {
             sumOfTrans += cost;
         }
         boolean hasValidAdjustmentSum = ValidateAdjustments.validateAdjustments(sumOfTrans, difference);
+
         return hasValidAdjustmentSum;
     }
 }
