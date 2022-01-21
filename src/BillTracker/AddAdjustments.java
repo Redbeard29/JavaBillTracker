@@ -6,7 +6,7 @@ public class AddAdjustments {
 
     public static Scanner scanner = new Scanner(System.in);
 
-    public static double addAdjustments(int numOfTrans){
+    public static boolean addAdjustments(int numOfTrans, double difference){
         double sumOfTrans = 0.00;
         for(int x = 0; x < numOfTrans; x++){
             System.out.println("Transaction " + (x + 1) + ":");
@@ -25,6 +25,7 @@ public class AddAdjustments {
             }
             sumOfTrans += cost;
         }
-        return sumOfTrans;
+        boolean hasValidAdjustmentSum = ValidateAdjustments.validateAdjustments(sumOfTrans, difference);
+        return hasValidAdjustmentSum;
     }
 }

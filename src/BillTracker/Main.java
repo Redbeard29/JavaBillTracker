@@ -23,8 +23,12 @@ public class Main {
 
             //Validate number of extra transactions to account for difference
             int numOfTrans = ValidateInputs.validateNumOfTrans();
-            double sumOfExtraTrans = AddAdjustments.addAdjustments(numOfTrans);
-            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", sumOfExtraTrans));
+            boolean isValidAdjustment = AddAdjustments.addAdjustments(numOfTrans, difference);
+            while(!isValidAdjustment){
+                System.out.println("The amount entered does not equal the amount specified. Please re-enter adjustments.");
+                isValidAdjustment = AddAdjustments.addAdjustments(numOfTrans, difference);
+            }
+            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", difference));
         }
         else{
             System.out.println("This is exactly the amount that is expected.");
