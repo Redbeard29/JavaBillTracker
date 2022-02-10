@@ -1,12 +1,16 @@
 package BillTracker;
 
+import java.util.HashMap;
+
 public class Main {
 
     public static void main(String[] args){
         double totalBiWeeklyEntry = 1425.00;
 
         double totalMonthlyPayment = CalculateTotalDue.getTotalMonthlyPayment(totalBiWeeklyEntry);
-        double totalCostOfBills = CalculateTotalDue.calculateTotalCost();
+        HashMap<String, Double> bills = BillTally.returnBillHashMap();
+        double totalCostOfBills = CalculateTotalDue.calculateTotalCost(bills);
+        System.out.println(bills);
 
         System.out.println("Total cost of bills: $" + String.format("%.2f", totalCostOfBills));
         System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyPayment));
@@ -42,7 +46,7 @@ public class Main {
                     isValidAdjustment = SubtractAdjustments.subtractAdjustments(difference);
                 }
             }
-            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", difference) + ", which is equal the difference specified.");
+            System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", difference) + ", which is equal to the difference specified.");
         }
         else{
             System.out.println("This is exactly the amount that is expected.");
