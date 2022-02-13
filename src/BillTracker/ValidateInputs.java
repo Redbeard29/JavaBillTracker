@@ -1,5 +1,6 @@
 package BillTracker;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ValidateInputs {
@@ -61,4 +62,12 @@ public class ValidateInputs {
 
         return false;
     }
+
+    public static boolean validateSubtractionKey(){
+        HashMap<String, Double> bills = BillTally.returnBillHashMap();
+
+        return true;
+
+    }
+
 }

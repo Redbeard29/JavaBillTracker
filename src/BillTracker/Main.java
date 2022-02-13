@@ -10,7 +10,6 @@ public class Main {
         double totalMonthlyPayment = CalculateTotalDue.getTotalMonthlyPayment(totalBiWeeklyEntry);
         HashMap<String, Double> bills = BillTally.returnBillHashMap();
         double totalCostOfBills = CalculateTotalDue.calculateTotalCost(bills);
-        System.out.println(bills);
 
         System.out.println("Total cost of bills: $" + String.format("%.2f", totalCostOfBills));
         System.out.println("Total being entered: $" + String.format("%.2f", totalMonthlyPayment));
@@ -33,7 +32,7 @@ public class Main {
                 isValidAdjustment = AddAdjustments.addAdjustments(numOfTrans, difference);
             }
             else{
-                isValidAdjustment = SubtractAdjustments.subtractAdjustments(difference);
+                isValidAdjustment = SubtractAdjustments.subtractAdjustments(numOfTrans, difference);
             }
             while(!isValidAdjustment){
                 System.out.println("The amount entered does not equal the difference specified. Please re-enter adjustments.");
@@ -43,7 +42,7 @@ public class Main {
                     isValidAdjustment = AddAdjustments.addAdjustments(numOfTrans, difference);
                 }
                 else{
-                    isValidAdjustment = SubtractAdjustments.subtractAdjustments(difference);
+                    isValidAdjustment = SubtractAdjustments.subtractAdjustments(numOfTrans, difference);
                 }
             }
             System.out.println("The sum of these " + numOfTrans + " extra transactions is $" + String.format("%.2f", difference) + ", which is equal to the difference specified.");

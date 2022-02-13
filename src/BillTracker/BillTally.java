@@ -28,4 +28,17 @@ public class BillTally {
 
         return billItems;
     }
+
+    public static String[] returnBillKeys(){
+        HashMap<String, Double> billItems = returnBillHashMap();
+        String [] billKeys = new String[billItems.size()];
+        int x = 0;
+        for(String key : billItems.keySet()){
+            billKeys[x++] = key;
+        }
+        System.out.println(billKeys);
+
+        return billKeys;
+    }
+
 }
