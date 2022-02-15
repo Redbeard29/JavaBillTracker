@@ -1,6 +1,7 @@
 package BillTracker;
 
 import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ValidateInputs {
@@ -64,9 +65,17 @@ public class ValidateInputs {
     }
 
     public static boolean validateSubtractionKey(){
-        HashMap<String, Double> bills = BillTally.returnBillHashMap();
+        String [] billKeys = BillTally.returnBillKeys();
+        boolean validReason = true;
+        //need to initialize while loop with logic for checks here
+        String reason = scanner.nextLine();
+        for(String key : billKeys){
+            if(key.toUpperCase() == reason.toUpperCase()){
+                validReason = true;
+            }
+        }
 
-        return true;
+        return validReason;
 
     }
 

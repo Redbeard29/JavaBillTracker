@@ -1,5 +1,6 @@
 package BillTracker;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class BillTally {
@@ -36,8 +37,6 @@ public class BillTally {
         for(String key : billItems.keySet()){
             billKeys[x++] = key;
         }
-        System.out.println(billKeys);
-
         return billKeys;
     }
 
