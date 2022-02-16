@@ -12,7 +12,7 @@ public class SubtractAdjustments {
         double sumOfTrans = 0.00;
         for(int x = 0; x < numOfTrans; x++){
             System.out.println("Transaction " + (x + 1) + ": Which bill would you like to subtract from?");
-            String reason = scanner.nextLine();
+            String reason = ValidateInputs.validateSubtractionKey();
 
             System.out.println("How much?");
             double cost = ValidateInputs.validateTotalEntered();

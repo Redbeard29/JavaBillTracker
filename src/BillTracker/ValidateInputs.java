@@ -1,7 +1,5 @@
 package BillTracker;
 
-import java.util.HashMap;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ValidateInputs {
@@ -64,18 +62,30 @@ public class ValidateInputs {
         return false;
     }
 
-    public static boolean validateSubtractionKey(){
+    public static String validateSubtractionKey(){
         String [] billKeys = BillTally.returnBillKeys();
-        boolean validReason = true;
+        boolean validReason = false;
+        boolean firstTime = true;
         //need to initialize while loop with logic for checks here
-        String reason = scanner.nextLine();
-        for(String key : billKeys){
-            if(key.toUpperCase() == reason.toUpperCase()){
-                validReason = true;
+        String reason = scanner.next();
+
+        while(!validReason){
+            for(String key : billKeys) {
+                if (reason.toUpperCase() == key.toUpperCase()) {
+                    validReason = true;
+                    System.out.println(key);
+                    System.out.println(validReason);
+                    break;
+                }
             }
+            if(!firstTime && !validReason){
+                System.out.println("That entry is invalid. Please select from an already existing bill.");
+                reason = scanner.nextLine();
+            }
+            firstTime = false;
         }
 
-        return validReason;
+        return reason;
 
     }
 
