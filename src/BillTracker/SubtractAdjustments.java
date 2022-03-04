@@ -14,7 +14,7 @@ public class SubtractAdjustments {
             System.out.println("Transaction " + (x + 1) + ": Which bill would you like to subtract from?");
             String reason = ValidateInputs.validateSubtractionKey();
 
-            System.out.println("How much?");
+            System.out.println(String.format("How much would you like to subtract from %s bill?", reason));
             double cost = ValidateInputs.validateTotalEntered();
 
             System.out.println("You entered $" + String.format("%.2f", cost) + " for " + reason);

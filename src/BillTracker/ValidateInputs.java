@@ -1,5 +1,7 @@
 package BillTracker;
 
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ValidateInputs {
@@ -65,24 +67,23 @@ public class ValidateInputs {
     public static String validateSubtractionKey(){
         String [] billKeys = BillTally.returnBillKeys();
         boolean validReason = false;
-        boolean firstTime = true;
         //need to initialize while loop with logic for checks here
         String reason = scanner.next();
 
         while(!validReason){
+
             for(String key : billKeys) {
-                if (reason.toUpperCase() == key.toUpperCase()) {
+                if (reason.equalsIgnoreCase(key)) {
                     validReason = true;
-                    System.out.println(key);
-                    System.out.println(validReason);
                     break;
                 }
             }
-            if(!firstTime && !validReason){
+
+            if(!validReason){
                 System.out.println("That entry is invalid. Please select from an already existing bill.");
                 reason = scanner.nextLine();
             }
-            firstTime = false;
+
         }
 
         return reason;
